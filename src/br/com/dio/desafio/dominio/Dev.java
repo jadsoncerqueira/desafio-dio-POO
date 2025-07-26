@@ -1,6 +1,7 @@
 package br.com.dio.desafio.dominio;
 
 import java.util.Objects;
+import java.util.Optional;
 import java.util.Set;
 
 public class Dev {
@@ -14,7 +15,7 @@ public class Dev {
         bootcamp.getDevsInscritos().add(this);
     }
     public void progredir() {
-        var conteudo = this.conteudosInscritos.stream().findFirst();
+        Optional<Conteudo> conteudo = this.conteudosInscritos.stream().findFirst();
         if (conteudo.isPresent()) {
             this.conteudosConcluidos.add(conteudo.get());
             this.conteudosInscritos.remove(conteudo.get());
